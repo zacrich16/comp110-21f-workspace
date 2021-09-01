@@ -1,4 +1,5 @@
-"""Hype Machine, Zachary Richardson"""
+"""COMP 110 Hype Machine Assignment"""
+__author__ = "730408740"
 
 name: str = input("What is your name? ")
 

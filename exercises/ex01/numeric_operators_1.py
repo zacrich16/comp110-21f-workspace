@@ -1,4 +1,6 @@
-""" Numeric Operators, Zachary Richardson"""
+"""COMP 110 Numeric Operators Assignment"""
+__author__ = "730408740"
+
 left: str = input("What is the Left-hand side? ")
 right: str = input("What is the Right-hand side? ")
 print("Left-hand side: ", left)
