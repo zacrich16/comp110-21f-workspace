@@ -15,4 +15,4 @@ while i < len(word):
             dup = True
         j += 1
     i += 1
-print(dup)
+print("Found duplicate:", dup)
