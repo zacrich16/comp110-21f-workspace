@@ -1,4 +1,4 @@
-"""Hype Machine, Zachary Richardson"""
+"""Hype Machine, Zachary Richardson."""
 
 name: str = input("What is your name? ")
 

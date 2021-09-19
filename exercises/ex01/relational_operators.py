@@ -1,4 +1,4 @@
-"""COMP 110 Relational Operators Assignment"""
+"""COMP 110 Relational Operators Assignment."""
 __author__ = "730408740"
 
 left: str = input("What is the Left-hand side? ")
