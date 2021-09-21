@@ -6,14 +6,16 @@ __author__ = "730408740"
 from random import randint
 
 # define global variables
-points: int = 0
+points: int
 player: str
 greet_done: int = 0
+FOOTBALL: str = "\U0001F3C8"
+FIELD_GOAL: str = "\U0001F64C"
 
 
 def greet() -> None:
     """Welcome message and player name."""
-    print("Welcome to the UNC Football Touchdown Challenge!")
+    print(f"Welcome to the UNC Football Touchdown Challenge! {FOOTBALL}")
     print("You pick the play and see if you can score against the CPU!")
     global player
     player = input("Enter Player Name: ")
@@ -31,15 +33,13 @@ def one_play_touchdown() -> None:
     if play == defense:
         print("No Touchdown")
     else:
-        print("TOUCHDOWN!")
+        print(f"TOUCHDOWN! {FOOTBALL}")
         global points
         points += 7
         print(f"Score: {player} - {points} \n CPU: 0")
     again: int = int(input("Play again? Choose yes (0) or no (1) "))
     if again == 0:
         one_play_touchdown()
-    else:
-        main()
     return None
 
 # pick play
@@ -61,7 +61,7 @@ def field_goal_kick(points: int) -> int:
         if dist >= 17:
             prob: int = randint(1, 10)
             if prob <= 9:
-                print("It's Good!")
+                print(f"It's Good! {FIELD_GOAL}")
                 points += 3
                 print(f"Score: {player} - {points} \n CPU: 0")
             else:
@@ -71,7 +71,7 @@ def field_goal_kick(points: int) -> int:
             if dist < 40:
                 prob: int = randint(1, 10)
                 if prob <= 7:
-                    print("It's Good")
+                    print(f"It's Good {FIELD_GOAL}")
                     points += 3
                     print(f"Score: {player} - {points} \n CPU: 0")
                 else:
@@ -79,7 +79,7 @@ def field_goal_kick(points: int) -> int:
             else:
                 prob: int = randint(1, 10)
                 if prob <= 6:
-                    print("It's Good")
+                    print(f"It's Good {FIELD_GOAL}")
                     points += 3
                     print(f"Score: {player} - {points} \n CPU: 0")
                 else:
@@ -87,7 +87,7 @@ def field_goal_kick(points: int) -> int:
         else:
             prob: int = randint(1, 10)
             if prob <= 5:
-                print("It's Good")
+                print(f"It's Good {FIELD_GOAL}")
                 points += 3
                 print(f"Score: {player} - {points} \n CPU: 0")
             else:
@@ -95,8 +95,6 @@ def field_goal_kick(points: int) -> int:
     again: int = int(input("Play again? Choose Yes (0) or No (1) "))
     if again == 0:
         field_goal_kick(points)
-    else:
-        main()
     return points
 
 # print welcome message
@@ -112,30 +110,33 @@ def end_game() -> None:
     if done == 0:
         print(f"Goodbye, {player}, you played well today!")
         print(f"Score: {player} - {points} \n CPU: 0")
-    else:
-        main()
 
 
 # define main function
 def main() -> None:
     """The program's entrypoint."""
-    if greet_done == 0:
-        greet()
-    print(f"Score: {player} - {points} \n CPU: 0")
-    mode: int = int(input("Choose your game mode: Quit (0), One Play Touchdown (1) or Field Goal Kicker (2) "))
-    if mode == 0:
-        end_game()
-    else:
-        if mode == 1:
-            one_play_touchdown()
+    global player
+    global points
+    points = 0
+    greet()
+    i = 0
+    while i < 1:
+        print(f"Score: {player} - {points} \n CPU: 0")
+        mode: int = int(input("Choose your game mode: Quit (0), One Play Touchdown (1) or Field Goal Kicker (2) "))
+        if mode == 0:
+            i = 1
+            end_game()
         else:
-            field_goal_kick(points)
+            if mode == 1:
+                one_play_touchdown()
+            else:
+                field_goal_kick(points)
 
 # 3 possible paths:
 # 1) custom procedure, ask for input, reassign points global var, 1 pt per choice
 # 2) function, int param/return val, pass points as arg to fun call, return points
 # 3) end game, print goodbye message, show total accumulated points
-    
+
 
 if __name__ == "__main__":
     main()
