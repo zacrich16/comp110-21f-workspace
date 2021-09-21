@@ -36,10 +36,6 @@ def one_play_touchdown() -> None:
         print(f"TOUCHDOWN! {FOOTBALL}")
         global points
         points += 7
-        print(f"Score: {player} - {points} \n CPU: 0")
-    again: int = int(input("Play again? Choose yes (0) or no (1) "))
-    if again == 0:
-        one_play_touchdown()
     return None
 
 # pick play
@@ -48,7 +44,6 @@ def one_play_touchdown() -> None:
 # if play == defense, print a random message
 # if play != defense, print TOUCHDOWN
 # print points
-# ask to play again
 
 
 def field_goal_kick(points: int) -> int:
@@ -63,7 +58,6 @@ def field_goal_kick(points: int) -> int:
             if prob <= 9:
                 print(f"It's Good! {FIELD_GOAL}")
                 points += 3
-                print(f"Score: {player} - {points} \n CPU: 0")
             else:
                 print("No Good")
     else:
@@ -73,7 +67,6 @@ def field_goal_kick(points: int) -> int:
                 if prob <= 7:
                     print(f"It's Good {FIELD_GOAL}")
                     points += 3
-                    print(f"Score: {player} - {points} \n CPU: 0")
                 else:
                     print("No Good")
             else:
@@ -81,7 +74,6 @@ def field_goal_kick(points: int) -> int:
                 if prob <= 6:
                     print(f"It's Good {FIELD_GOAL}")
                     points += 3
-                    print(f"Score: {player} - {points} \n CPU: 0")
                 else:
                     print("No Good")
         else:
@@ -89,19 +81,15 @@ def field_goal_kick(points: int) -> int:
             if prob <= 5:
                 print(f"It's Good {FIELD_GOAL}")
                 points += 3
-                print(f"Score: {player} - {points} \n CPU: 0")
             else:
                 print("No Good")
-    again: int = int(input("Play again? Choose Yes (0) or No (1) "))
-    if again == 0:
-        field_goal_kick(points)
     return points
 
 # print welcome message
 # pick distance
 # randint make or miss
-# if randint == 1, print It's Good
-# if randint != 1, print No Good
+# if randint <= x, print It's Good
+# if randint > x, print No Good
 
 
 def end_game() -> None:
@@ -130,7 +118,7 @@ def main() -> None:
             if mode == 1:
                 one_play_touchdown()
             else:
-                field_goal_kick(points)
+                points = field_goal_kick(points)
 
 # 3 possible paths:
 # 1) custom procedure, ask for input, reassign points global var, 1 pt per choice
