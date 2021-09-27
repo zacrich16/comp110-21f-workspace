@@ -23,7 +23,7 @@ def all(a: list[int], b: int) -> bool:
 def is_equal(a: list[int], b: list[int]) -> bool:
     """See if two lists are identical."""
     if len(a) != len(b):
-        return False
+        return False  # return false if lists have unequal lengths
     i = 0
     counter = 0
     while i < len(a) and len(b):
