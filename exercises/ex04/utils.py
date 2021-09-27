@@ -30,7 +30,7 @@ def is_equal(a: list[int], b: list[int]) -> bool:
         if a[i] == b[i]:
             counter += 1
         i += 1
-    if counter == len(a) or len(b):
+    if counter == len(a):
         return True
     else:
         return False
