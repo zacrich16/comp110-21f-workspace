@@ -6,6 +6,7 @@ __author__ = "730408740"
 
 
 def only_evens(a: list[int]) -> list[int]:
+    """Create new list of only even values from input list."""
     i = 0
     evens: list[int] = []
     while i < len(a):
@@ -16,6 +17,7 @@ def only_evens(a: list[int]) -> list[int]:
 
 
 def sub(a: list[int], i: int, j: int) -> list[int]:
+    """Create subset list of defined indices."""
     sub_list: list[int] = []
     if i < 0:
         i = 0
@@ -30,6 +32,7 @@ def sub(a: list[int], i: int, j: int) -> list[int]:
 
 
 def concat(a: list[int], b: list[int]) -> list[int]:
+    """Concatenate two lists together."""
     a_plus_b: list[int] = []
     i = 0
     while i < len(a):
